@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<h1 class="page-header">
+    Авторизация
+</h1>
+
+<form action="/auth/" class="form form-auth" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+    </p>
+    {% endfor %}
+    <input type="submit" value="Войти">
+    <a href="/register/">Зарегистрироваться</a>
+</form>
+
+{% endblock content %}

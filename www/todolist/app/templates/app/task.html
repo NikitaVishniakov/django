@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<a href="/todolist/">Назад</a>
+<h1 class="page-header">
+    {{ task.name }}
+</h1>
+<div class="task-detail">
+    <p class="show"> {{ task.description }} </p>
+    <p class="show"> Выполнено:  
+        {% if task.description %}
+            {{ 'Да' }}
+        {% else %}
+            {{ 'Нет' }}
+        {% endif %}
+    </p>
+    <p class="show">Дата создания: {{ task.date_created }}</p>
+    <p class="show"> Тэги: 
+        {% for tag in task.tags %}
+        
+        <a href="#">{{ tag }}</a>
+    
+        {% endfor %}
+    </p>
+</div>
+<a href="edit">Редактировать</a>
+<a href="delete">Удалить</a>
+
+{% endblock content %}

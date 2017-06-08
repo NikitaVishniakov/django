@@ -1,0 +1,18 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<h1 class="page-header">
+    Список задач <a href="/todolist/new">Добавить группу задач</a>
+</h1>
+
+{% for taskgroup in todolist %}
+    <h2> {{ taskgroup.name }} <a href="/todolist/{{taskgroup.id}}/new">Добавить задачу</a></h2>
+
+<ul>
+    {% for task in taskgroup.tasks %}
+    <li><a href="/todolist/{{ taskgroup.id}}/tasks/{{ task.id }}/">{{ task.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endfor %}
+
+{% endblock content %}

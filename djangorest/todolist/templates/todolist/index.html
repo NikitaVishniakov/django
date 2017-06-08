@@ -1,0 +1,9 @@
+{% if tasks %}
+    <ul>
+    {% for task in tasks %}
+        <li><a href="{% url 'todolist:detail' task.id %}">{{ task.name }} ({{ task.tasklist}})</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p> У одного бездельника нет задач :( Кому ты вообще нужен тогда? </p>
+{% endif %}
